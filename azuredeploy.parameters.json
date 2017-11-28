@@ -3,13 +3,19 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "dbAdminLogin": {
-      "value": "azureadmin"
+      "value": ""
     },
     "dbAdminPassword": {
-      "value": "P@ssw0rd1."
+      "value": ""
     },
     "sendgridPassword": {
-      "value": "P@ssw0rd1."
+      "value": ""
+    },
+    "dbImportStorageAccountName": {
+      "value": ""
+    },
+    "dbImportStorageAccountKey": {
+      "value": ""
     }
   }
 }

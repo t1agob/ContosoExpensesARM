@@ -8,12 +8,19 @@
     "dbAdminPassword": {
       "type": "securestring"
     },
+    "dbImportStorageAccountName": {
+      "type": "string"
+    },
+    "dbImportStorageAccountKey": {
+      "type": "securestring"
+    },
     "sendgridPassword": {
       "type": "securestring"
     }
   },
   "variables": {
     "databaseName": "contosoexpensesdb",
+    "DBImportStorageUri": "[concat('https://', parameters('dbImportStorageAccountName'), '.blob.core.windows.net/importcontainer/ContosoExpensesDB.bacpac')]",
     "hostingPlanName": "[concat('contosoexasp', uniqueString(resourceGroup().id))]",
     "consumptionPlanName": "[concat('contosoexcp', uniqueString(resourceGroup().id))]",
     "apiSiteName": "[concat('contosoexpapi', uniqueString(resourceGroup().id))]",
@@ -56,7 +63,29 @@
             "collation": "SQL_Latin1_General_CP1_CI_AS",
             "maxSizeBytes": "1073741824",
             "requestedServiceObjectiveName": "S1"
-          }
+          },
+          "resources": [
+            {
+              "name": "DBImport",
+              "type": "extensions",
+              "apiVersion": "2014-04-01-preview",
+              "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers/databases', split(concat(variables('sqlserverName'), '/', variables('databaseName')), '/')[0], split(concat(variables('sqlserverName'), '/', variables('databaseName')), '/')[1])]"
+              ],
+              "tags": {
+                "displayName": "DBImport"
+              },
+              "properties": {
+                "storageKeyType": "Primary",
+                "storageKey": "[parameters('dbImportStorageAccountKey')]",
+                "storageUri": "[variables('DBImportStorageUri')]",
+                "administratorLogin": "[parameters('dbAdminLogin')]",
+                "administratorLoginPassword": "[parameters('dbAdminPassword')]",
+                "operationMode": "Import"
+              }
+            }
+            
+          ]
         },
         {
           "type": "firewallrules",

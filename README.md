@@ -39,11 +39,12 @@ Successfully uploaded .bacpac to storage account
 ## Deploy the template
 To deploy the ARM template click the _Deploy to Azure_ button. Fill in the required fields.
 
+[![Deploy to Azure](https://azuredeploy.net/deploybutton.svg)](https://azuredeploy.net/)
+
 ![Screenshot](media/img08.png)
 
-> *Make sure the information copied previously is used in the this deployment phase.
+> Make sure the information copied previously is used in the this deployment phase.
 
-[![Deploy to Azure](https://azuredeploy.net/deploybutton.svg)](https://azuredeploy.net/)
 
 ## Configure SendGrid
 After deploying the template successfuly the SendGrid resource is already deployed in Azure but we need to generate an API Key and add it to the Azure Function Settings.

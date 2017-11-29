@@ -56,6 +56,7 @@ After deploying the template successfuly the SendGrid resource is already deploy
 ![Screenshot](media/img02.png)
 
 3. **Expand the Settings tab** on the left menu and click **API Keys**.
+
 ![Screenshot](media/img03.png)
 
 4. Click **Create API Key**.

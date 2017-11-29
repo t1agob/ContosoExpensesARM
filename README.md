@@ -81,4 +81,6 @@ After deploying the template successfuly the SendGrid resource is already deploy
 9. Update the **SendGridApiKey** with the value you copied from the SendGrid portal and **Save**
 
 ![Screenshot](media/img07.png)
+
+
 That's it, you are ready to start!

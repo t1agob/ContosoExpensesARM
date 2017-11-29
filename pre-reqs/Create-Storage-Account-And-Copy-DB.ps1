@@ -53,7 +53,7 @@ Remove-Item .\ContosoExpensesDB.bacpac
 
 # Output storage account name and key
 Write-Host ""
-Write-Host " ----                  DEPLOYMENT INFORMATION                  ---- " -f Yellow
+Write-Host " ----                  OUTPUT " -f Yellow
 Write-Host " - RESOURCE GROUP NAME: " -NoNewline; Write-Host "$resourcegroupname" -f Red
 Write-Host " - STORAGE ACCOUNT NAME: " -NoNewline; Write-Host "$storageaccountname" -f Red
 Write-Host " - STORAGE ACCOUNT KEY: " -NoNewline; Write-Host "$storageaccountkey" -f Red
